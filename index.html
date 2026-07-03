@@ -1,211 +1,901 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mohit Kumar | Full Stack Developer</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mohit Kumar | Full Stack Developer</title>
+    <style>
+      /* =========================================
+   CSS STYLES
+   ========================================= */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-<nav>
-  <div class="nav-logo">&lt;MK /&gt;</div>
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <div class="hamburger" id="hamburger">&#9776;</div>
-</nav>
+      :root {
+        --accent: #58a6ff;
+        --accent2: #7ee787;
+        --bg1: #0d1117;
+        --bg2: #161b22;
+        --bg3: #21262d;
+        --border: #30363d;
+        --text1: #e6edf3;
+        --text2: #8b949e;
+      }
 
-<section class="hero">
-  <div class="hero-name">Hi, I'm <span>Mohit Kumar</span></div>
-  <div class="hero-role">Full Stack Developer (MERN) &middot; 2026 Fresher</div>
-  <div class="hero-desc">Final-year CSE student building scalable web apps with real-time features, secure auth, and clean APIs. Open to full-time SWE roles.</div>
-  <div class="hero-btns">
-    <a class="btn-primary" href="Mohit_Kumar_Resume_2026.pdf" download>Download Resume ↓</a>
-    <a class="btn-outline" href="#projects">View Projects →</a>
-  </div>
-</section>
+      html {
+        scroll-behavior: smooth;
+      }
 
-<hr class="divider">
+      body {
+        background: var(--bg1);
+        color: var(--text1);
+        font-family: "Segoe UI", Arial, sans-serif;
+        line-height: 1.6;
+      }
 
-<section id="about">
-  <div class="section-title">About me</div>
-  <div class="section-line"></div>
-  <div class="about-grid">
-    <div class="about-text">
-      I'm a final-year B.Tech CSE student at Haldia Institute of Technology (CGPA: 8.02), passionate about building full-stack web applications. I specialize in the MERN stack and love creating real-time, user-focused products.
-      <br><br>
-      I've built projects like <strong>DevMatch</strong> (a developer networking platform with real-time chat) and <strong>NetflixGPT</strong> (an AI-powered movie browser). I also volunteer at Samarpan, mentoring underprivileged students.
-    </div>
-    <div class="about-stats">
-      <div class="stat-card"><div class="stat-num">8.02</div><div class="stat-label">CGPA</div></div>
-      <div class="stat-card"><div class="stat-num">150+</div><div class="stat-label">DSA problems solved</div></div>
-      <div class="stat-card"><div class="stat-num">2</div><div class="stat-label">Major projects</div></div>
-      <div class="stat-card"><div class="stat-num">5 mo</div><div class="stat-label">Internship experience</div></div>
-    </div>
-  </div>
-</section>
+      /* NAV */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(13, 17, 23, 0.95);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+        height: 56px;
+      }
+      .nav-logo {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--accent);
+      }
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+      .nav-links a {
+        color: var(--text2);
+        text-decoration: none;
+        font-size: 14px;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--text1);
+      }
+      .hamburger {
+        display: none;
+        font-size: 22px;
+        cursor: pointer;
+        color: var(--text1);
+      }
 
-<hr class="divider">
+      /* HERO */
+      .hero {
+        text-align: center;
+        padding: 6rem 2rem 5rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .hero-name {
+        font-size: 52px;
+        font-weight: 600;
+        color: var(--text1);
+        line-height: 1.1;
+        margin-bottom: 1rem;
+      }
+      .hero-name span {
+        color: var(--accent);
+      }
+      .hero-role {
+        font-size: 20px;
+        color: var(--text2);
+        margin-bottom: 1rem;
+      }
+      .hero-desc {
+        font-size: 15px;
+        color: var(--text2);
+        max-width: 560px;
+        margin: 0 auto 2rem;
+        line-height: 1.7;
+      }
+      .hero-btns {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
 
-<section id="skills">
-  <div class="section-title">Technical skills</div>
-  <div class="section-line"></div>
-  <div class="skills-grid">
-    <div class="skill-cat">
-      <div class="skill-cat-title">Frontend</div>
-      <div class="skill-tags">
-        <span class="skill-tag">React.js</span>
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">Tailwind CSS</span>
-        <span class="skill-tag">HTML</span>
-        <span class="skill-tag">CSS</span>
+      .btn-primary {
+        background: var(--accent);
+        color: #0d1117;
+        border: none;
+        padding: 11px 26px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: opacity 0.2s;
+      }
+      .btn-primary:hover {
+        opacity: 0.85;
+      }
+      .btn-outline {
+        background: transparent;
+        color: var(--accent);
+        border: 1px solid var(--accent);
+        padding: 11px 26px;
+        border-radius: 6px;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: background 0.2s;
+      }
+      .btn-outline:hover {
+        background: rgba(88, 166, 255, 0.1);
+      }
+
+      /* DIVIDER */
+      .divider {
+        border: none;
+        border-top: 1px solid var(--border);
+      }
+
+      /* SECTIONS */
+      section {
+        padding: 4rem 2rem;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        font-size: 24px;
+        font-weight: 600;
+        color: var(--text1);
+        margin-bottom: 0.4rem;
+      }
+      .section-line {
+        width: 48px;
+        height: 3px;
+        background: var(--accent);
+        border-radius: 2px;
+        margin-bottom: 2rem;
+      }
+
+      /* ABOUT */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+        align-items: center;
+      }
+      .about-text {
+        font-size: 15px;
+        color: var(--text2);
+        line-height: 1.8;
+      }
+      .about-text strong {
+        color: var(--text1);
+      }
+      .about-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      .stat-card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 1.2rem;
+        text-align: center;
+        transition: border-color 0.2s;
+      }
+      .stat-card:hover {
+        border-color: var(--accent);
+      }
+      .stat-num {
+        font-size: 30px;
+        font-weight: 600;
+        color: var(--accent);
+      }
+      .stat-label {
+        font-size: 12px;
+        color: var(--text2);
+        margin-top: 4px;
+      }
+
+      /* SKILLS */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        gap: 1rem;
+      }
+      .skill-cat {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 1.25rem;
+        transition: border-color 0.2s;
+      }
+      .skill-cat:hover {
+        border-color: var(--accent2);
+      }
+      .skill-cat-title {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--accent2);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 0.75rem;
+      }
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .skill-tag {
+        background: var(--bg3);
+        color: var(--text2);
+        font-size: 12px;
+        padding: 4px 10px;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+      }
+
+      /* PROJECTS */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.25rem;
+      }
+      .project-card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      .project-card:hover {
+        border-color: var(--accent);
+        transform: translateY(-3px);
+      }
+      .project-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .project-name {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text1);
+      }
+      .project-links {
+        display: flex;
+        gap: 8px;
+      }
+      .project-links a {
+        color: var(--text2);
+        font-size: 12px;
+        text-decoration: none;
+        padding: 3px 10px;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .project-links a:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+      .project-desc {
+        font-size: 14px;
+        color: var(--text2);
+        line-height: 1.6;
+        flex: 1;
+      }
+      .project-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: auto;
+      }
+      .stack-tag {
+        background: rgba(88, 166, 255, 0.1);
+        color: var(--accent);
+        font-size: 11px;
+        padding: 2px 8px;
+        border-radius: 4px;
+        border: 1px solid rgba(88, 166, 255, 0.2);
+      }
+
+      /* EXPERIENCE & EDUCATION */
+      .exp-card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-left: 3px solid var(--accent);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .exp-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .exp-role {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text1);
+      }
+      .exp-date {
+        font-size: 13px;
+        color: var(--text2);
+      }
+      .exp-company {
+        font-size: 14px;
+        color: var(--accent);
+        margin: 4px 0;
+      }
+      .exp-points {
+        padding-left: 1.25rem;
+        margin-top: 0.75rem;
+      }
+      .exp-points li {
+        font-size: 14px;
+        color: var(--text2);
+        line-height: 1.6;
+        margin-bottom: 6px;
+      }
+
+      /* ACHIEVEMENTS */
+      .achieve-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1rem;
+      }
+      .achieve-card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 1.25rem;
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+        transition: border-color 0.2s;
+      }
+      .achieve-card:hover {
+        border-color: var(--accent2);
+      }
+      .achieve-icon {
+        font-size: 22px;
+        flex-shrink: 0;
+      }
+      .achieve-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text1);
+      }
+      .achieve-desc {
+        font-size: 13px;
+        color: var(--text2);
+        margin-top: 4px;
+        line-height: 1.5;
+      }
+
+      /* CONTACT */
+      #contact {
+        text-align: center;
+      }
+      .contact-card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 3rem 2rem;
+      }
+      .contact-title {
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--text1);
+        margin-bottom: 0.5rem;
+      }
+      .contact-sub {
+        font-size: 15px;
+        color: var(--text2);
+        margin-bottom: 2rem;
+      }
+      .contact-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .contact-link {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text2);
+        text-decoration: none;
+        font-size: 14px;
+        padding: 10px 18px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .contact-link:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+
+      /* FOOTER */
+      footer {
+        text-align: center;
+        padding: 2rem;
+        font-size: 13px;
+        color: var(--text2);
+        border-top: 1px solid var(--border);
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 700px) {
+        .nav-links {
+          display: none;
+        }
+        .nav-links.open {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          top: 56px;
+          left: 0;
+          right: 0;
+          background: var(--bg2);
+          border-bottom: 1px solid var(--border);
+          padding: 1rem 2rem;
+          gap: 1rem;
+        }
+        .hamburger {
+          display: block;
+        }
+        .hero-name {
+          font-size: 34px;
+        }
+        .hero {
+          padding: 4rem 1.5rem 3rem;
+        }
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+        section {
+          padding: 3rem 1.25rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-logo">&lt;MK /&gt;</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience & Education</a>
+        <a href="#contact">Contact</a>
       </div>
-    </div>
-    <div class="skill-cat">
-      <div class="skill-cat-title">Backend</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Node.js</span>
-        <span class="skill-tag">Express.js</span>
-        <span class="skill-tag">Socket.io</span>
-        <span class="skill-tag">JWT</span>
-        <span class="skill-tag">REST APIs</span>
-      </div>
-    </div>
-    <div class="skill-cat">
-      <div class="skill-cat-title">Database & Tools</div>
-      <div class="skill-tags">
-        <span class="skill-tag">MongoDB</span>
-        <span class="skill-tag">MySQL</span>
-        <span class="skill-tag">Firebase</span>
-        <span class="skill-tag">Postman</span>
-        <span class="skill-tag">GitHub</span>
-      </div>
-    </div>
-    <div class="skill-cat">
-      <div class="skill-cat-title">Languages & AI</div>
-      <div class="skill-tags">
-        <span class="skill-tag">C++</span>
-        <span class="skill-tag">SQL</span>
-        <span class="skill-tag">Groq AI</span>
-        <span class="skill-tag">DSA</span>
-      </div>
-    </div>
-  </div>
-</section>
+      <div class="hamburger" id="hamburger">&#9776;</div>
+    </nav>
 
-<hr class="divider">
+    <section class="hero">
+      <div class="hero-name">Hi, I'm <span>Mohit Kumar</span></div>
+      <div class="hero-role">
+        Full Stack Developer (MERN) &middot; 2026 Fresher
+      </div>
+      <div class="hero-desc">
+        Computer Science graduate with hands-on experience in the MERN stack,
+        real-time applications, and AI integrations. Passionate about solving
+        real-world problems through clean, scalable software. Open to full-time
+        Software Engineer roles.
+      </div>
+      <div class="hero-btns">
+        <a class="btn-primary" href="Mohit_Kumar_Resume_2026.pdf" download
+          >Download Resume ↓</a
+        >
+        <a class="btn-outline" href="#projects">View Projects →</a>
+      </div>
+    </section>
 
-<section id="projects">
-  <div class="section-title">Projects</div>
-  <div class="section-line"></div>
-  <div class="projects-grid">
-    <div class="project-card">
-      <div class="project-header">
-        <div class="project-name">DevMatch</div>
-        <div class="project-links">
-          <a href="https://github.com/mohit04gits/DevMatch" target="_blank">GitHub</a>
-          <a href="https://dev-match-flax.vercel.app/" target="_blank">Live</a>
+    <hr class="divider" />
+
+    <section id="about">
+      <div class="section-title">About me</div>
+      <div class="section-line"></div>
+      <div class="about-grid">
+        <div class="about-text">
+          I'm a Full Stack Developer passionate about building modern web
+          applications using React.js, Node.js, Express.js, and MongoDB. As a
+          B.Tech CSE graduate (CGPA: 8.11) from Haldia Institute of Technology,
+          I enjoy turning ideas into responsive, user-friendly products and
+          exploring AI-powered solutions. <br /><br />
+          I've built projects like <strong>InterviewIQ</strong> (an AI mock
+          interview platform) and <strong>DevMatch</strong> (a developer
+          networking platform with real-time chat). I also volunteer at
+          Samarpan, mentoring underprivileged students.
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-num">8.11</div>
+            <div class="stat-label">CGPA</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">150+</div>
+            <div class="stat-label">DSA problems solved</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">3</div>
+            <div class="stat-label">Major projects</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">5 mo</div>
+            <div class="stat-label">Internship experience</div>
+          </div>
         </div>
       </div>
-      <div class="project-desc">Developer networking platform where users can discover, connect, and chat in real-time. Features secure JWT auth, protected routes, and optimized backend APIs.</div>
-      <div class="project-stack">
-        <span class="stack-tag">MongoDB</span>
-        <span class="stack-tag">Express.js</span>
-        <span class="stack-tag">React.js</span>
-        <span class="stack-tag">Node.js</span>
-        <span class="stack-tag">Socket.io</span>
-        <span class="stack-tag">JWT</span>
-      </div>
-    </div>
-    <div class="project-card">
-      <div class="project-header">
-        <div class="project-name">NetflixGPT</div>
-        <div class="project-links">
-          <a href="https://github.com/mohit04gits/NetflixGpt" target="_blank">GitHub</a>
-          <a href="https://netflix-gpt-jy6u.vercel.app/" target="_blank">Live</a>
+    </section>
+
+    <hr class="divider" />
+
+    <section id="skills">
+      <div class="section-title">Technical skills</div>
+      <div class="section-line"></div>
+      <div class="skills-grid">
+        <div class="skill-cat">
+          <div class="skill-cat-title">Frontend</div>
+          <div class="skill-tags">
+            <span class="skill-tag">React.js</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Tailwind CSS</span>
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-title">Backend</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Express.js</span>
+            <span class="skill-tag">Socket.io</span>
+            <span class="skill-tag">JWT</span>
+            <span class="skill-tag">REST APIs</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-title">Database & Tools</div>
+          <div class="skill-tags">
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">Firebase</span>
+            <span class="skill-tag">Postman</span>
+            <span class="skill-tag">GitHub</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-title">Languages & AI</div>
+          <div class="skill-tags">
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Groq API</span>
+            <span class="skill-tag">Gemini AI</span>
+          </div>
         </div>
       </div>
-      <div class="project-desc">AI-powered Netflix-style movie browser with personalized recommendations. Integrated Firebase auth, TMDB API for live movie data, and Groq AI for smart suggestions.</div>
-      <div class="project-stack">
-        <span class="stack-tag">React.js</span>
-        <span class="stack-tag">Firebase</span>
-        <span class="stack-tag">TMDB API</span>
-        <span class="stack-tag">Groq AI</span>
-        <span class="stack-tag">Tailwind CSS</span>
+    </section>
+
+    <hr class="divider" />
+
+    <section id="projects">
+      <div class="section-title">Projects</div>
+      <div class="section-line"></div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-name">InterviewIQ.AI</div>
+            <div class="project-links">
+              <a href="https://interview-iq-ovv7.vercel.app/" target="_blank"
+                >Live</a
+              >
+            </div>
+          </div>
+          <div class="project-desc">
+            Full-stack AI-powered mock interview platform. Features dynamic
+            role-specific questions, real-time speech-to-text input, AI
+            evaluation using Gemini, and a credit-based payment system via
+            Razorpay.
+          </div>
+          <div class="project-stack">
+            <span class="stack-tag">React.js</span>
+            <span class="stack-tag">Node.js</span>
+            <span class="stack-tag">MongoDB</span>
+            <span class="stack-tag">Gemini API</span>
+            <span class="stack-tag">Razorpay</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-name">DevMatch</div>
+            <div class="project-links">
+              <a href="https://github.com/mohit04gits/DevMatch" target="_blank"
+                >GitHub</a
+              >
+              <a href="https://dev-match-ynxo.vercel.app/" target="_blank"
+                >Live</a
+              >
+            </div>
+          </div>
+          <div class="project-desc">
+            Developer networking platform where users can discover, connect, and
+            chat in real-time. Features secure JWT auth, protected routes, and
+            bidirectional communication.
+          </div>
+          <div class="project-stack">
+            <span class="stack-tag">MongoDB</span>
+            <span class="stack-tag">Express.js</span>
+            <span class="stack-tag">React.js</span>
+            <span class="stack-tag">Node.js</span>
+            <span class="stack-tag">Socket.io</span>
+            <span class="stack-tag">JWT</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-name">NetflixGPT</div>
+            <div class="project-links">
+              <a
+                href="https://github.com/mohit04gits/NetflixGpt"
+                target="_blank"
+                >GitHub</a
+              >
+              <a href="https://netflix-gpt-jy6u.vercel.app/" target="_blank"
+                >Live</a
+              >
+            </div>
+          </div>
+          <div class="project-desc">
+            AI-powered Netflix-style movie browser with personalized
+            recommendations. Integrated Firebase auth, TMDB API for live movie
+            data, and Groq AI for smart suggestions.
+          </div>
+          <div class="project-stack">
+            <span class="stack-tag">React.js</span>
+            <span class="stack-tag">Firebase</span>
+            <span class="stack-tag">TMDB API</span>
+            <span class="stack-tag">Groq AI</span>
+            <span class="stack-tag">Tailwind CSS</span>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<hr class="divider">
+    <hr class="divider" />
 
-<section id="experience">
-  <div class="section-title">Experience</div>
-  <div class="section-line"></div>
-  <div class="exp-card">
-    <div class="exp-top">
-      <div>
-        <div class="exp-role">Frontend Developer Intern</div>
-        <div class="exp-company">HSR Hi-Tech Solutions</div>
+    <section id="experience">
+      <div class="section-title">Experience</div>
+      <div class="section-line"></div>
+      <div class="exp-card">
+        <div class="exp-top">
+          <div>
+            <div class="exp-role">Frontend Developer Intern</div>
+            <div class="exp-company">HSR Hi-Tech Solutions</div>
+          </div>
+          <div class="exp-date">Jan 2025 – May 2025</div>
+        </div>
+        <ul class="exp-points">
+          <li>
+            Engineered reusable React.js components and integrated RESTful APIs,
+            streamlining data flow for a production MERN stack application.
+          </li>
+          <li>
+            Collaborated within an agile team to design and ship highly
+            responsive, mobile-first interfaces using Tailwind CSS and
+            JavaScript.
+          </li>
+        </ul>
       </div>
-      <div class="exp-date">Jan 2025 – May 2025</div>
-    </div>
-    <ul class="exp-points">
-      <li>Contributed to a team-based MERN stack web application focusing on frontend development.</li>
-      <li>Developed 10+ responsive and reusable UI components using React.js and Tailwind CSS.</li>
-      <li>Integrated RESTful APIs with frontend and managed state for dynamic data rendering.</li>
-    </ul>
-  </div>
 
-  <div class="section-title" style="margin-top:2.5rem;">Achievements</div>
-  <div class="section-line"></div>
-  <div class="achieve-grid">
-    <div class="achieve-card">
-      <div class="achieve-icon">🏆</div>
-      <div>
-        <div class="achieve-title">B-Plan Winner – Prayukti Techfest 2023</div>
-        <div class="achieve-desc">1st place at HIT Haldia's national tech fest for a scalable technology-driven business solution.</div>
+      <div class="section-title" style="margin-top: 3.5rem">Education</div>
+      <div class="section-line"></div>
+
+      <div class="exp-card">
+        <div class="exp-top">
+          <div>
+            <div class="exp-role">
+              B.Tech in Computer Science and Engineering
+            </div>
+            <div class="exp-company">
+              Haldia Institute of Technology, West Bengal
+            </div>
+          </div>
+          <div class="exp-date">Oct 2022 – June 2026</div>
+        </div>
+        <ul class="exp-points">
+          <li><strong>CGPA:</strong> 8.11/10</li>
+        </ul>
       </div>
-    </div>
-    <div class="achieve-card">
-      <div class="achieve-icon">💻</div>
-      <div>
-        <div class="achieve-title">150+ DSA problems solved</div>
-        <div class="achieve-desc">Solved across LeetCode and other platforms, focusing on Data Structures and Algorithms.</div>
+
+      <div class="exp-card">
+        <div class="exp-top">
+          <div>
+            <div class="exp-role">
+              Intermediate (Bihar School Examination Board)
+            </div>
+            <div class="exp-company">R.K.C.K College, Araria, Bihar</div>
+          </div>
+          <div class="exp-date">June 2019 – March 2021</div>
+        </div>
+        <ul class="exp-points">
+          <li><strong>Percentage:</strong> 74.2%</li>
+        </ul>
       </div>
-    </div>
-    <div class="achieve-card">
-      <div class="achieve-icon">🤝</div>
-      <div>
-        <div class="achieve-title">Volunteer – Samarpan, HIT Haldia</div>
-        <div class="achieve-desc">Mentoring underprivileged students and organizing community outreach since Jan 2023.</div>
+
+      <div class="exp-card">
+        <div class="exp-top">
+          <div>
+            <div class="exp-role">Matriculation (CBSE)</div>
+            <div class="exp-company">
+              Mohini Devi Memorial School, Araria, Bihar
+            </div>
+          </div>
+          <div class="exp-date">May 2018 – May 2019</div>
+        </div>
+        <ul class="exp-points">
+          <li><strong>Percentage:</strong> 80%</li>
+        </ul>
       </div>
-    </div>
-  </div>
-</section>
 
-<hr class="divider">
+      <div class="section-title" style="margin-top: 3.5rem">Achievements</div>
+      <div class="section-line"></div>
+      <div class="achieve-grid">
+        <div class="achieve-card">
+          <div class="achieve-icon">🏆</div>
+          <div>
+            <div class="achieve-title">
+              B-Plan Winner – Prayukti Techfest 2023
+            </div>
+            <div class="achieve-desc">
+              1st place at HIT Haldia's tech fest for presenting a scalable
+              technology-driven business solution.
+            </div>
+          </div>
+        </div>
+        <div class="achieve-card">
+          <div class="achieve-icon">💻</div>
+          <div>
+            <div class="achieve-title">150+ DSA problems solved</div>
+            <div class="achieve-desc">
+              Solved across multiple platforms, focusing heavily on Data
+              Structures and Algorithms.
+            </div>
+          </div>
+        </div>
+        <div class="achieve-card">
+          <div class="achieve-icon">🤝</div>
+          <div>
+            <div class="achieve-title">Volunteer – Samarpan, HIT Haldia</div>
+            <div class="achieve-desc">
+              Mentoring underprivileged students and organizing community
+              outreach initiatives since Jan 2023.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section id="contact">
-  <div class="contact-card">
-    <div class="contact-title">Let's connect</div>
-    <div class="contact-sub">Open to full-time SWE roles and internships. Feel free to reach out!</div>
-    <div class="contact-links">
-      <a class="contact-link" href="mailto:mohitgupta1834@gmail.com">✉ mohitgupta1834@gmail.com</a>
-      <a class="contact-link" href="https://www.linkedin.com/in/mohit-kumar404/" target="_blank">LinkedIn</a>
-      <a class="contact-link" href="https://github.com/mohit04gits" target="_blank">GitHub</a>
-      <a class="contact-link" href="tel:+918340671724">+91-8340671724</a>
-    </div>
-  </div>
-</section>
+    <hr class="divider" />
 
-<footer>Designed & built by Mohit Kumar &copy; 2026</footer>
+    <section id="contact">
+      <div class="contact-card">
+        <div class="contact-title">Let's connect</div>
+        <div class="contact-sub">
+          Open to full-time SWE roles and internships. Feel free to reach out!
+        </div>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:mohitgupta1834@gmail.com"
+            >✉ mohitgupta1834@gmail.com</a
+          >
+          <a
+            class="contact-link"
+            href="https://linkedin.com/in/mohit-kumar-bb0b281b6"
+            target="_blank"
+            >LinkedIn</a
+          >
+          <a
+            class="contact-link"
+            href="https://github.com/mohit04gits"
+            target="_blank"
+            >GitHub</a
+          >
+          <a class="contact-link" href="tel:+918340671724">+91-8340671724</a>
+        </div>
+      </div>
+    </section>
 
-<script src="script.js"></script>
-</body>
+    <footer>Designed & built by Mohit Kumar &copy; 2026</footer>
+
+    <script>
+      /* =========================================
+   JAVASCRIPT
+   ========================================= */
+      // Hamburger menu toggle
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.querySelector(".nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+      });
+
+      // Close menu on nav link click (mobile)
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+        });
+      });
+
+      // Active nav highlight on scroll
+      const sections = document.querySelectorAll("section[id]");
+      const navAnchors = document.querySelectorAll(".nav-links a");
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((sec) => {
+          const top = sec.offsetTop - 80;
+          if (window.scrollY >= top) current = sec.getAttribute("id");
+        });
+        navAnchors.forEach((a) => {
+          a.style.color =
+            a.getAttribute("href") === "#" + current ? "#58a6ff" : "";
+        });
+      });
+
+      // Fade-in animation on scroll
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      document
+        .querySelectorAll(
+          ".project-card, .skill-cat, .stat-card, .achieve-card, .exp-card",
+        )
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(20px)";
+          el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+          observer.observe(el);
+        });
+    </script>
+  </body>
 </html>
